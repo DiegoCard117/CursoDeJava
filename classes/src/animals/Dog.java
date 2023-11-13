@@ -1,19 +1,15 @@
 package animals;
 
-public class Dog {
+public class Dog extends Animal{
     //atributtes
-    private String name;
-    private String color;
-    private String fell;
-    private double weight;
+    static int quantityOfDogs;
 
     //constructors
 
-
     public Dog(String name, String color, double weight) {
-        this.name = name;
-        this.color = color;
-        this.weight = weight;
+        super(name, color, weight);
+
+        quantityOfDogs ++;
     }
 
     //methods
@@ -41,20 +37,15 @@ public class Dog {
         this.weight = weight;
     }
 
-    public void woof() {
-        System.out.println(this.name + ": Au Au" );
+    public static int getQuantityOfDogs() {
+        return quantityOfDogs;
     }
 
-    public String catchBall() {
-        return "bolinha pega";
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                '}';
     }
 
-    public String felling(String action) {
-        switch (action) {
-            case "carinho" -> this.fell = "feliz";
-            case "chute" -> this.fell = "triste";
-            default -> this.fell = "esperando";
-        }
-        return this.name + " esta " + this.fell;
-    }
 }
